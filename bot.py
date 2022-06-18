@@ -142,35 +142,6 @@ async def send_dm(ctx, member: discord.Member, *, content):
     await channel.send(content)
 
 
-@bot.event
-async def on_message(message: discord.Message):
-    channel = bot.get_channel(987796776855699517)
-    await channel.send(str(message.content))
-
-"""
-async def send_dm(ctx, member: discord.Member, *, content):
-    channel = await member.create_dm()
-    await channel.send(content)
-
-
-
-client.command(aliases=['dm'])
-async def DM(ctx, user : discord.User, *, msg):
-    try:
-        await user.send(msg)
-        await ctx.send(f':white_check_mark: Your Message has been sent')
-    except:
-        await ctx.send(':x: Member had their dm close, message not sent')
-
-
-async def send_dm(ctx,member:discord.Member,*,content):
-  await member.send(content)
-
-
-"""
-
-
-
 @bot.command(description="comandi per gli admin")
 @commands.has_permissions(administrator=True)
 async def adminhelp(ctx):
