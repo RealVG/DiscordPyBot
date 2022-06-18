@@ -144,9 +144,8 @@ async def send_dm(ctx, member: discord.Member, *, content):
 
 @bot.event
 async def on_message(message: discord.Message):
-    for message in message.content:
-        channel = bot.get_channel(987796776855699517)
-        await channel.send(message.content)
+    channel = bot.get_channel(987796776855699517)
+    await channel.send(str(message.content))
 
 """
 async def send_dm(ctx, member: discord.Member, *, content):
