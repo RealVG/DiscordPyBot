@@ -136,6 +136,12 @@ async def clearchat(ctx, amount=100000000):
     await ctx.channel.purge(limit=amount)
 
 
+@client.command(description="pulisce la chat")
+async def msg(ctx,userid:str,*,msg):
+       user = ctx.message.server.get_member(userid) or user = client.get_member(userid)
+       await client.send_message(user,msg)
+
+
 @bot.command(description="comandi per gli admin")
 @commands.has_permissions(administrator=True)
 async def adminhelp(ctx):
