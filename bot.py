@@ -153,6 +153,8 @@ async def adminhelp(ctx):
 """)
 
 
+token = os.environ["token"]
+
 
 
 
