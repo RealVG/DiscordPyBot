@@ -137,9 +137,11 @@ async def clearchat(ctx, amount=100000000):
 
 
 @bot.command(description="manda mess privati")
-async def msg(ctx,userid:str,*,msg):
-       user = ctx.message.server.get_member(userid) or user = bot.get_member(userid)
-       await bot.send_message(user,msg)
+async def msg(ctx,user,*,msg):
+        user=client.get_user(user_id)
+        await bot.send_message(user,msg)
+
+
 
 
 @bot.command(description="comandi per gli admin")
