@@ -156,4 +156,4 @@ async def adminhelp(ctx):
 
 
 
-bot.run("OTg3MzE2NTA4NTYyNjg2MDAy.GYHJe6.GtoMYHKMfgq61QywtiiHVfZQfDMbPeSC10FVV4")
+bot.run(process.env.token)
