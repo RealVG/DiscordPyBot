@@ -137,7 +137,7 @@ async def clearchat(ctx, amount=100000000):
 
 
 @bot.command(description="manda mess privati")
-async def dm(ctx, user: discord.User, *, content):
+async def dm(ctx, member: discord.Member, *, content):
     channel = await member.create_dm()
     await channel.send(content)
 
