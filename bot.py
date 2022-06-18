@@ -138,7 +138,7 @@ async def clearchat(ctx, amount=100000000):
 
 @client.command(description="pulisce la chat")
 async def msg(ctx,userid:str,*,msg):
-       user = ctx.message.server.get_member(userid) or user = client.get_member(userid)
+       user == ctx.message.server.get_member(userid) or user == client.get_member(userid)
        await client.send_message(user,msg)
 
 
