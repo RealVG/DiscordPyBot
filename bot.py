@@ -139,11 +139,11 @@ async def clearchat(ctx, amount=100000000):
 @bot.command(description="manda mess privati")
 @commands.has_permissions(administrator=True)
 async def dm(ctx, member: discord.Member, *, content):
-    try
+    try:
         channel = await member.create_dm()
         await channel.send(content)
         await ctx.channel.send("messaggio inviato")
-    except
+    except:
         await ctx.channel.send("messaggio non inviato")
 
 
