@@ -137,9 +137,14 @@ async def clearchat(ctx, amount=100000000):
 
 
 @bot.command(description="manda mess privati")
+@commands.has_permissions(administrator=True)
 async def dm(ctx, member: discord.Member, *, content):
-    channel = await member.create_dm()
-    await channel.send(content)
+    try
+        channel = await member.create_dm()
+        await channel.send(content)
+        await ctx.channel.send("messaggio inviato")
+    except
+        await ctx.channel.send("messaggio non inviato")
 
 
 @bot.command(description="comandi per gli admin")
@@ -157,6 +162,19 @@ async def adminhelp(ctx):
 !clearchat - Pulisce tutta la chat.
 ```
 """)
+
+@bot.command(description="Mutes the specified user.")
+@commands.has_permissions(manage_messages=True)
+async def negro(ctx, member: discord.Member, *):
+    guild = ctx.guild
+    negroRole = discord.utils.get(guild.roles, name="NEGRO")
+    member.edit(nick="NEGRO!")
+
+    if not negroRole:
+        negroRole = await guild.create_role(name="NEGRO")
+
+    await member.add_roles(negroRole)
+    await ctx.send(f"{member.mention} è diventato negro!")
 
 
 token = os.environ["token"]
