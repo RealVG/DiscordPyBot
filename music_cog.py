@@ -83,7 +83,7 @@ class music_cog(commands.Cog):
             if type(song) == type(True):
                 await ctx.send("Download della canzone fallito. Canzone non trovata riprovare")
             else:
-                embed=discor.Embed(
+                embed=discord.Embed(
                     title = "Canzone aggiunta correttamente alla coda",
                     colour = discord.Colour.blue()
                 )
