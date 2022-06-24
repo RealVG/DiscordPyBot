@@ -193,8 +193,10 @@ async def bruttonegro(ctx, member: discord.Member):
     antiRole = discord.utils.get(ctx.guild.roles, name="AntiNigger")
     try:
         await member.remove_roles(antiRole)
-
+    except:
+        
     await ctx.send(f"{member.mention} è stato messo nella lista dei ricercati perche si è messo dalla parte dei negri!")
+
     sterminioRole = discord.utils.get(guild.roles, name="BlxLivesMatterSupporter")
 
     if not sterminioRole:
