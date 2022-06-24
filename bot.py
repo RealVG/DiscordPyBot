@@ -186,7 +186,7 @@ async def setname(ctx,member: discord.Member, message):
 
 @bot.command(description="cambia il nome")
 @commands.has_permissions(administrator=True)
-async def reloadname(ctx,member: discord.Member, message):
+async def reloadname(ctx,member: discord.Member):
     await member.edit(nick="")
     await ctx.send(f"Nickname di {member} è stato resettato")
 
