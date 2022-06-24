@@ -75,15 +75,22 @@ class music_cog(commands.Cog):
         voice_channel = ctx.author.voice.channel
         if voice_channel is None:
             #you need to be connected so that the bot knows where to go
-            await ctx.send("Connect to a voice channel!")
+            await ctx.send("Connettiti a un canale vocale!")
         elif self.is_paused:
             self.vc.resume()
         else:
             song = self.search_yt(query)
             if type(song) == type(True):
-                await ctx.send("Could not download the song. Incorrect format try another keyword. This could be due to playlist or a livestream format.")
+                await ctx.send("Download della canzone fallito. Canzone non trovata riprovare")
             else:
-                await ctx.send("Song added to the queue")
+                embed=discor.Embed(
+                    title = "Canzone aggiunta correttamente alla coda",
+                    colour = discord.Colour.blue()
+                )
+                
+                await ctx.send("Canzone aggiunta correttamente alla coda")
+                await ctx.send(search_yt())
+
                 self.music_queue.append([song, voice_channel])
                 
                 if self.is_playing == False:

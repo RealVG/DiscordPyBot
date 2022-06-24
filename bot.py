@@ -35,14 +35,7 @@ async def on_ready():
 async def status(ctx):
     latency = round(bot.latency * 1000,
                     1)  # bot.latency per la latenza e il resto è per arrotondare la cifra al primo numero decimale
-    await ctx.send(f"Pong! Il bot ha {latency}ms")
-
-
-@bot.command(description="saluta un membro specifico")
-async def hi(ctx,
-             member):  # va a prendere il paramentro "member" per andarlo a mettere nel "send" cosifacendo è richiesto
-    await ctx.send(
-        f"Ciao {member}!")  # per forza un user da salutare dopo il comando !hi  (sintassi = !hi <tag da salutare>
+    await ctx.send(f"Il bot ha {latency}ms")
 
 
 @bot.command(description="Ban di un membro")
