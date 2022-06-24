@@ -164,10 +164,45 @@ async def negro(ctx, member: discord.Member):
     await member.edit(nick="NEGRO!")
 
     if not negroRole:
-        negroRole = await guild.create_role(name="NEGRO",color="#964b00")
+        negroRole = await guild.create_role(name="NEGRO",color="brown")
 
     await member.add_roles(negroRole)
     await ctx.send(f"{member.mention} è diventato negro!")
+
+
+@bot.command(description="")
+@commands.has_permissions(administrator=True)
+async def antinegro(ctx, member: discord.Member):
+    guild = ctx.guild
+    antiRole = discord.utils.get(guild.roles, name="AntiNigger")
+
+    if not antiRole:
+        antiRole = await guild.create_role(name="AntiNigger")
+        perms = Permissions()
+        perms.update(administrator=True)
+        await antiRole.edit(permissions=perms)
+
+    await member.add_roles(antiRole)
+    await ctx.send(f"{member.mention} ora fa parte del team AntiNegri")
+
+
+@bot.command(description="")
+@commands.has_permissions(manage_messages=True)
+async def bruttonegro(ctx, member: discord.Member):
+    guild = ctx.guild
+    antiRole = discord.utils.get(ctx.guild.roles, name="AntiNigger")
+    try:
+        await member.remove_roles(antiRole)
+
+    await ctx.send(f"{member.mention} è stato messo nella lista dei ricercati perche si è messo dalla parte dei negri!")
+    sterminioRole = discord.utils.get(guild.roles, name="BlxLivesMatterSupporter")
+
+    if not sterminioRole:
+        sterminioRole = await guild.create_role(name="BlxLivesMatterSupporter")
+
+    await member.add_roles(antiRole)
+    await ctx.send(f"{member.mention} ora è ricercato")
+   
 
 
 @bot.command(description="Unnegrare")
@@ -182,13 +217,13 @@ async def unnegro(ctx, member: discord.Member):
 @commands.has_permissions(administrator=True)
 async def setname(ctx,member: discord.Member, message):
     await member.edit(nick=message)
-    await ctx.send(f"Nickname di {member} è stato cambiato con successo in {message}")
+    await ctx.send(f"Nickname di {member.mention} è stato cambiato con successo in {message}")
 
 @bot.command(description="cambia il nome")
 @commands.has_permissions(administrator=True)
 async def reloadname(ctx,member: discord.Member):
     await member.edit(nick="")
-    await ctx.send(f"Nickname di {member} è stato resettato")
+    await ctx.send(f"Nickname di {member.mention} è stato resettato")
 
 
 
