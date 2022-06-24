@@ -199,7 +199,7 @@ async def bruttonegro(ctx, member: discord.Member):
     if not sterminioRole:
         sterminioRole = await guild.create_role(name="BlxLivesMatterSupporter")
 
-    await member.add_roles(antiRole)
+    await member.add_roles(sterminioRole)
     await ctx.send(f"{member.mention} ora è ricercato")
    
 
