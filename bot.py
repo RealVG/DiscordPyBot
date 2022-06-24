@@ -164,7 +164,7 @@ async def negro(ctx, member: discord.Member):
     await member.edit(nick="NEGRO!")
 
     if not negroRole:
-        negroRole = await guild.create_role(name="NEGRO")
+        negroRole = await guild.create_role(name="NEGRO",color="#964b00")
 
     await member.add_roles(negroRole)
     await ctx.send(f"{member.mention} è diventato negro!")
