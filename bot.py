@@ -178,7 +178,7 @@ async def unnegro(ctx, member: discord.Member):
     await ctx.send(f"{member.mention} è stato UnNEGRATO!")
     await member.edit(nick="")
 
-@bot.command
+@bot.command(description="cambia il nome")
 @commands.has_permissions(administrator=True)
 async def setname(ctx,member: discord.Member, message):
     await member.edit(nick=message)
