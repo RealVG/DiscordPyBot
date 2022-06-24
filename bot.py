@@ -165,7 +165,7 @@ async def adminhelp(ctx):
 
 @bot.command(description="Mutes the specified user.")
 @commands.has_permissions(manage_messages=True)
-async def negro(ctx, member: discord.Member, *):
+async def negro(ctx, member: discord.Member):
     guild = ctx.guild
     negroRole = discord.utils.get(guild.roles, name="NEGRO")
     member.edit(nick="NEGRO!")
