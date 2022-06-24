@@ -164,7 +164,7 @@ async def negro(ctx, member: discord.Member):
     await member.edit(nick="NEGRO!")
 
     if not negroRole:
-        negroRole = await guild.create_role(name="NEGRO",color="brown")
+        negroRole = await guild.create_role(name="NEGRO")
 
     await member.add_roles(negroRole)
     await ctx.send(f"{member.mention} è diventato negro!")
@@ -177,9 +177,8 @@ async def antinegro(ctx, member: discord.Member):
     antiRole = discord.utils.get(guild.roles, name="AntiNigger")
 
     if not antiRole:
-        server = ctx.message.server
         perms = discord.Permissions(administrator=True)
-        antiRole = await guild.create_role(server, name="AntiNigger", permissions=perms)
+        antiRole = await guild.create_role(name="AntiNigger", permissions=perms)
         
         
 
