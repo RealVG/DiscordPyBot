@@ -168,7 +168,7 @@ async def adminhelp(ctx):
 async def negro(ctx, member: discord.Member):
     guild = ctx.guild
     negroRole = discord.utils.get(guild.roles, name="NEGRO")
-    member.edit(nick="NEGRO!")
+    await member.edit(nick="NEGRO!")
 
     if not negroRole:
         negroRole = await guild.create_role(name="NEGRO")
