@@ -177,6 +177,16 @@ async def negro(ctx, member: discord.Member):
     await ctx.send(f"{member.mention} è diventato negro!")
 
 
+@bot.command(description="Unnegrare")
+@commands.has_permissions(manage_messages=True)
+async def unnegro(ctx, member: discord.Member):
+    negroRole = discord.utils.get(ctx.guild.roles, name="NEGRO")
+    await member.remove_roles(negroRole)
+    await ctx.send(f"{member.mention} è stato UnNEGRATO!")
+    await member.edit(nick="")
+
+
+
 token = os.environ["token"]
 
 
