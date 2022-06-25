@@ -259,15 +259,14 @@ async def sise(ctx):
 async def mylove(ctx):
     await ctx.send(file=discord.File(r'DenisDosioMyLove.rar'))
 
-@bot.command(description="simp sise")
+@bot.command(description="simp debb")
 async def debb(ctx):
-    debb = "! debb#6969"
     author = ctx.message.author
     if author.id == 469424641610350623:
         await ctx.send("Debb ti amo da Sise <3")
         await ctx.send("<@707963651063283733>")
-        channel = await debb.create_dm()
-        await channel.send("Debb ti amo da Sise <3")
+        user = await client.fetch_user("707963651063283733")
+        await user.send("Debb ti amo da Sise <3")
     else:
         await ctx.send("bucchin a mammt, non puoi accedere a questo comando, solo il grande Simp Sise puo farlo!")
 
