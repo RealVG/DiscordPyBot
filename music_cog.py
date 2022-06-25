@@ -91,7 +91,7 @@ class music_cog(commands.Cog):
                     await self.play_music(ctx)
 
     @commands.command(name="pause", help="Pauses the current song being played")
-    async def pause(self, ctx, *args):
+    async def stop(self, ctx, *args):
         if self.is_playing:
             self.is_playing = False
             self.is_paused = True
