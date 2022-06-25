@@ -174,6 +174,8 @@ async def negro(ctx, member: discord.Member):
 @commands.has_permissions(administrator=True)
 async def antinegro(ctx, member: discord.Member):
     guild = ctx.guild
+    sterminioRole = discord.utils.get(guild.roles, name="BlxLivesMatterSupporter")
+    await member.remove_roles(sterminioRole)
     antiRole = discord.utils.get(guild.roles, name="AntiNigger")
 
     if not antiRole:
