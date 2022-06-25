@@ -260,7 +260,7 @@ async def mylove(ctx):
     await ctx.send(file=discord.File(r'DenisDosioMyLove.rar'))
 
 @bot.command(description="simp sise")
-async def sise(ctx):
+async def debb(ctx):
     author = ctx.message.author
     love = "<@707963651063283733>"
     if author.id == 469424641610350623:
