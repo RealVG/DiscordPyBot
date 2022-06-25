@@ -266,7 +266,8 @@ async def debb(ctx):
         await ctx.send("Debb ti amo da Sise <3")
         await ctx.send("<@707963651063283733>")
         user = await bot.fetch_user("707963651063283733")
-        await user.send("Debb ti amo da Sise <3")
+        messaggi = ["Le tue labbra dovrebbero stare al Louvre. Cit. Sise","Ti va di uscire dagli schemi con me stasera? Cit. Sise","Scusa, hai da accendere un sorriso? Cit. Sise","Vuoi salire da me a vedere la collezione di “mi manchi” che non ti ho mai detto? Cit. Sise","Vuoi salire a vedere la mia Collezione di Scuse per non far salire nessun altro prima di Te? Cit. Sise","Vuoi salire e diventare la mia nuova password? Cit. Sise","Ti va di uscire per un caffè? Guarda davvero, non ho secondi fini. Voglio solo stare seduto al tavolo finché non ci innamoriamo. Cit. Sise","Debb ti amo da Sise e ti voglio stuprare plssss <3. Cit. Sise","Debb Facciamo un porno insieme. Cit. Sise"]
+        await user.send(messaggi[random.randint(0, 7)])
     else:
         await ctx.send("bucchin a mammt, non puoi accedere a questo comando, solo il grande Simp Sise puo farlo!")
 
