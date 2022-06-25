@@ -265,7 +265,7 @@ async def debb(ctx):
     if author.id == 469424641610350623:
         await ctx.send("Debb ti amo da Sise <3")
         await ctx.send("<@707963651063283733>")
-        user = await client.fetch_user("707963651063283733")
+        user = await bot.fetch_user("707963651063283733")
         await user.send("Debb ti amo da Sise <3")
     else:
         await ctx.send("bucchin a mammt, non puoi accedere a questo comando, solo il grande Simp Sise puo farlo!")
