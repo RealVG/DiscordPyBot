@@ -70,7 +70,6 @@ async def unban(ctx, *, member):
 
 
 @bot.command(description="Changes bots activity")
-@commands.has_permissions(administrator=True)
 async def attivita(ctx, *, activity, ):
     author = ctx.message.author
     if author.id == 541308281625509905 or author.id == 469424641610350623:
