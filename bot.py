@@ -272,8 +272,15 @@ async def debb(ctx):
 
 @bot.command(description="consigli")
 async def consiglio(ctx,message):
-    channel = bot.get_channel(992034814553243718)
-    await channel.send(f'Consiglio da {ctx.message.author.mention}. Dice "{message}"')
+    try:
+        channel = bot.get_channel(992034814553243718)
+        await channel.send(f'Consiglio da {ctx.message.author.mention}. Dice "{message}"')
+    except:
+        await channel.send("Messaggio non inviato, sintassi sbagliata o qualcosa è andato storto, contattare l'owner del Bot !owner")
+
+@bot.command(description="owner")
+async def owner(ctx):
+    await ctx.send("<@541308281625509905>")
 
 token = os.environ["token"]
 
