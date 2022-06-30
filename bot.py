@@ -271,7 +271,7 @@ async def debb(ctx):
         await ctx.send("bucchin a mammt, non puoi accedere a questo comando, solo il grande Simp Sise puo farlo!")
 
 @bot.command(description="consigli")
-async def consiglio(ctx,message):
+async def consiglio(ctx,*,message):
     try:
         channel = bot.get_channel(992034814553243718)
         await channel.send(f'Consiglio da {ctx.message.author.mention}. Dice "{message}"')
