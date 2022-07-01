@@ -15,7 +15,7 @@ General commands:
 !leave - Disconnette il bot dal canale connesso.
 !pause - Mette in pausa la canzone o, se è gia in pausa, riprende.
 !resume - Riprende la canzone messa in pausa.
-!consiglio - scrivi un consiglio per una nuova funzionalità da aggiungere al bot!.
+!tip - scrivi un consiglio per una nuova funzionalità da aggiungere al bot!.
 ```
 """
         self.text_channel_list = []
